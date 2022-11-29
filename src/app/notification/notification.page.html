@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Centre de notification</ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <div contentId="main" class="padding">
+    <div *ngIf=" this.nombre_notification > 0">
+        <ion-list class="employeeItem"  *ngFor="let notification of notification_presence">
+            <ion-item  lines="none">
+                <ion-label><strong> {{notification.nom_stagiaire}} {{notification.prenom_stagiaire}}</strong> <br>
+                  <span class="info_collab">Début des cours : {{notification.h_debut}} h<br> Arrivée: {{notification.heure_arrive}}h:{{notification.minute_arrive}}mn <br> Lieu: {{ notification.lieu }}</span>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div *ngIf="this.nombre_notification == 0">
+      <ion-chip color="warning">Il n'y a pas encore eu de présence aujourd'hui</ion-chip>
+    </div>
+  </div>
+</ion-content>

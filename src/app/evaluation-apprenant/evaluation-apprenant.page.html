@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pre-evaluation de l'apprenant</ion-title>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-col>Competence</ion-col>
+      <ion-col>Note</ion-col>
+      <ion-col>Validation</ion-col>
+    </ion-row>
+    <ion-row *ngFor="let competence of Competence.competences;let i=index ">
+      <ion-col>{{ Competence.competences ? competence.titre_competence :  "..." }}</ion-col>
+      <ion-input type="text" hidden [(ngModel)]="comp[i]" name = "competence"></ion-input>
+      <ion-input type="number" max = "10"  [(ngModel)]="note[i]"></ion-input>
+      <ion-list>
+        <ion-radio-group value="grape" [(ngModel)]="validation[i]">
+          <ion-item>
+            <ion-label>NA</ion-label>
+            <ion-radio slot="start" color="danger" value="na"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>EC</ion-label>
+            <ion-radio slot="start" color="tertiary" value="ec"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>AC</ion-label>
+            <ion-radio slot="start" color="success" value="ac"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-row>
+    <ion-row>
+      <ion-list>
+        <ion-radio-group value="grape" [(ngModel)]="validation_globale">
+          <ion-list-header>
+            <ion-label>Validation globale </ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Non-validé</ion-label>
+            <ion-radio slot="start" color="danger" value="nv"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Validé</ion-label>
+            <ion-radio slot="start" color="tertiary" value="va"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-row>
+    <ion-row>
+      <ion-button color="primary" (click) ="evaluation()">Ajouter</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

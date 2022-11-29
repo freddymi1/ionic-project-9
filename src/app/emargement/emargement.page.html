@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rapport de présence</ion-title>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- <div class="padding"> -->
+  <ion-content>
+      <div class="ion-padding">
+        <div class="_headContent">
+          <ion-text style="font-size: 0.9rem;">Rapport de présence : 
+            <strong>{{ Projet.Projet ? Projet.Projet[0].nom_groupe :  "..." }}</strong> 
+            du <strong>{{ Projet.Projet? Projet.Projet[0].date_debut :  "..." }}</strong> 
+            au 
+            <strong>{{ Projet.Projet ? Projet.Projet[0].date_fin :  "..." }}</strong>
+          </ion-text><br>
+          <ion-text style="font-size: 0.9rem;">Module :  <strong>{{ Projet.Projet ? Projet.Projet[0].nom_module :  "..." }}</strong></ion-text><br>
+          <ion-text style="font-size: 0.9rem;">Organisme de formation : <strong>{{ Projet.Projet ? Projet.Projet[0].nom_cfp :  "..." }}</strong> </ion-text>
+        </div>
+        <ion-card class='ion-no-margin'>
+          <ion-card-content class='ion-no-padding'>
+            <ion-grid>
+              <ion-row>
+                <ion-col><strong>Stagiaires</strong></ion-col>
+                <ion-col><strong>Date</strong></ion-col>
+                <ion-col><strong>Présence</strong></ion-col>
+              </ion-row>
+              <ion-row  *ngFor="let presence of Presence.Presence">
+                <ion-col>
+                  <ion-text style="font-size: 0.8rem;">
+                    {{ presence.matricule }} - {{ presence.nom_stagiaire }} {{ presence.prenom_stagiaire }}
+                  </ion-text>
+                </ion-col>
+                <ion-col *ngFor="let projet of Projet.Projet"> 
+                  <ion-text style="font-size: 0.8rem;">
+                    {{ projet.date_detail}}
+                  </ion-text>
+                </ion-col>
+                <ion-col>
+                  <ion-text style="font-size: 0.8rem;">
+                    {{presence.statut_presence_groupe_text}}
+                  </ion-text>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+        <!-- <ion-grid>
+            <ion-row>
+              <ion-col>Stagiaires</ion-col>
+              <ion-col>Date</ion-col>
+              <ion-col>Présence</ion-col>
+            </ion-row>
+            <ion-row  *ngFor="let presence of Presence.Presence">
+              <ion-col> {{ presence.matricule }} - {{ presence.nom_stagiaire }} {{ presence.prenom_stagiaire }} </ion-col>
+              <ion-row  *ngFor="let projet of Projet.Projet">
+                <ion-col> {{ projet.date_detail}}  </ion-col>
+              </ion-row>
+              <ion-col> {{presence.statut_presence_groupe_text}} </ion-col>
+            </ion-row>
+          </ion-grid> -->
+        <!-- <ion-list *ngFor="let presence of Presence.Presence">
+          <ion-item class="employeeItem">
+            <ion-label>Stagiaire</ion-label>
+            <ion-label>Date</ion-label><br>
+            <ion-label>{{ presence.matricule }} - {{ presence.nom_stagiaire }} {{ presence.prenom_stagiaire }}</ion-label>
+            <ion-list *ngFor= "let projet of Projet.Projet">
+              <ion-label> {{projet ? projet.date_detail  :  "..."}}  </ion-label>
+            </ion-list>
+            <ion-label>  </ion-label>
+            <ion-label> </ion-label>
+            <ion-label></ion-label>
+            <ion-label></ion-label>
+          </ion-item>
+        </ion-list> -->
+      </div>
+  </ion-content>
+<!-- </div> -->

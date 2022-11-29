@@ -1,0 +1,17 @@
+<ion-header [hidden]="scanActive">
+  <ion-toolbar>
+    <ion-title>Présence</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [style.--background]="scanActive? '#00000000' : '#fff'">
+ 
+  <p class="ion-text-center" *ngIf="result && !scanActive">{{ result }}</p>
+
+  <ion-row class="scanner-buttons" [hidden] = "!scanActive">
+    <ion-col class="ion-no-padding">
+        <ion-button expand="full" (click) = "stopScanner()">Stop</ion-button>
+    </ion-col>
+  </ion-row>
+  <div class="scan-box"  [hidden]="!scanActive"></div>
+</ion-content>

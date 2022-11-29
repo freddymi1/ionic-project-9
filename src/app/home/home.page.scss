@@ -1,0 +1,62 @@
+
+ion-content{
+  // --ion-background-color: linear-gradient(to bottom, #ff6a00,#ee0979);
+}
+ion-item{
+  --ion-background-color: transparent !important;
+}
+.padding{
+  padding: 5%;
+}
+.forgot{
+  text-decoration: none;
+  color: white;
+  font-size: 0.850rem;
+}
+.logo{
+  height: 300px;
+  position: relative;
+}
+
+@keyframes updown{
+  0% , 100%{
+      transform: translateY(0);
+      opacity: 1;
+  }
+  50%{
+      transform: translateY(40px);
+  }
+}
+.logo img{
+  position: relative;
+  top: 20%;
+  left: 35%;
+  transform: translate(-20%,-35%);
+  height: 60%;
+  animation-name: updown;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0s;
+}
+.route{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.insription{
+  margin-top: 100px;
+  margin-bottom: 40px;
+  --background: linear-gradient(to left, #DA22FF,#9733EE);
+  // color: #ff6a00;
+}
+.connexion{
+  margin-top: 40px;
+  --color: #9733EE;
+  --border-color: #9733EE;
+}
+
+.ou{
+  text-align: center;
+  font-size: .9rem;
+  color: #1d2424;
+}

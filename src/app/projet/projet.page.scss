@@ -1,0 +1,49 @@
+ion-toolbar {
+  --background: #9733EE;
+}
+.padding{
+  padding: 5%;
+
+  ion-list{
+      background-color: #fff;
+  }
+}
+.list_projet{
+  display: flex;
+  flex-direction: column;
+  margin-top: 9px;
+  margin-bottom: 9px;
+}
+.employeeItem{
+
+  ion-item{
+      --border-radius: 6px;
+      --border-width: 1px;
+      min-height: 5rem;
+      justify-content: space-between;
+      width: 100%;
+      --color: #1d2424;
+  }
+  ion-avatar{
+      width: 50px;
+      height: 50px;
+  }
+  img {
+      width: 3rem;
+      border-radius: 50%;
+  }
+  .nom_module{
+      font-size: .850rem;
+  }
+  .date_projet {
+      font-size: .8rem;
+      color: #7d8181;
+      margin-top: 3px;
+  }
+  ion-button{
+      --background: transparent;
+      --color: #ff6a00;
+      --border-style: none;
+      --box-shadow: none;
+  }
+}

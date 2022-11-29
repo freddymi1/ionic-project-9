@@ -1,0 +1,95 @@
+
+	<ion-header>
+		<ion-toolbar>
+		<ion-title>Profil du collaborateur</ion-title>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		</ion-toolbar>
+	</ion-header>
+  	<ion-content fullscreen>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" class="ion-justify-content-center ion-align-items-center ion-text-center">
+              <ion-row>
+                <ion-col size="8">
+                  <ion-row class ="profileInfo">
+                    <ion-col size="6">
+                      <div *ngIf="sary != null">
+                        <ion-avatar slot="start">
+                          <img src="data:image/png;base64,{{sary}}" alt="photo_user"/>
+                        </ion-avatar>
+                      </div>
+                      <div *ngIf="sary == null">
+                        <ion-avatar slot="start">
+                          <span class="initial">{{(  Collaborator.Collaborator ? Collaborator.Collaborator.nom_emp :  "...")?.substring(0,1)}}{{( Collaborator.Collaborator ? Collaborator.Collaborator.prenom_emp :  "...")?.substring(0,1)}}</span>
+                        </ion-avatar>
+                      </div>
+                    </ion-col>
+                    <ion-col size="6">
+                      <ion-text color="dark" class ="profileName">
+                        <p>   {{ Collaborator.Collaborator ? Collaborator.Collaborator.nom_emp :  "..." }}    {{ Collaborator.Collaborator ? Collaborator.Collaborator.prenom_emp :  "..." }}</p>
+                        <p>  {{ Collaborator.Collaborator ? Collaborator.Collaborator.date_naissance_emp :  "..." }} </p>
+                        <p> {{ Collaborator.Collaborator ? Collaborator.Collaborator.cin_emp :  "..." }} </p>
+                        <p> {{ Collaborator.Collaborator ? Collaborator.Collaborator.email_emp :  "..." }} </p>
+                        <p>{{ Collaborator.Collaborator ? Collaborator.Collaborator.telephone_emp :  "..." }} </p>
+                      </ion-text>
+                    </ion-col>
+                  </ion-row>
+                </ion-col>
+              </ion-row>
+
+              <ion-row>
+                <ion-accordion-group>
+                  <ion-accordion value="first">
+                    <ion-item slot="header" color="light">
+                      <ion-label>Formation  cette année  <ion-badge slot="end" color = "tertiary">{{ Nombre.nombre_formation ? Nombre.nombre_formation.nombre :  "..." }}</ion-badge> </ion-label>
+                    </ion-item>
+                    <div class="ion-padding" *ngFor="let formation of Formation.data" slot="content">
+                      {{formation.nom_module}} - {{formation.nom_groupe}} du {{formation.date_debut}} au {{formation.date_fin}}
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="second">
+                    <ion-item slot="header" color="light">
+                      <ion-label>Presence cette année  <ion-badge slot="end" color = "tertiary">{{ Presence.presence}} %</ion-badge> </ion-label>
+                    </ion-item>
+                    <div class="ion-padding" slot="content">
+                      <canvas #doughnutCanvas></canvas>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="third">
+                    <ion-item slot="header" color="light">
+                      <ion-label> Evaluation cette année </ion-label>
+                    </ion-item>
+                    <div class="ion-padding" slot="content">
+                      <canvas #evaluationCanvas></canvas>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ion-row>
+              <!-- <ion-row>
+                <ion-col size="4">
+                  <ion-button color="primary" expand="block">
+                    Formation  cette année ( {{ Nombre.nombre_formation ? Nombre.nombre_formation.nombre :  "..." }} )
+                  </ion-button>
+                  <ion-list *ngFor="let formation of Formation.data">
+                    <ion-item class="employeeItem">{{formation.nom_module}} - {{formation.nom_groupe}} du {{formation.date_debut}} au {{formation.date_fin}}</ion-item>
+                  </ion-list>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-button color="primary" expand="block">
+                    Presence cette année ({{ Presence.presence}} %)
+                  </ion-button>
+                  <canvas #doughnutCanvas></canvas>
+                </ion-col>
+                <ion-col size="4">
+                  <ion-button color="primary" expand="block">
+                    Evaluation cette année
+                  </ion-button>
+                  <canvas #evaluationCanvas></canvas>
+                </ion-col>
+              </ion-row> -->
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  </ion-content>

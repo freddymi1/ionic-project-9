@@ -1,0 +1,9 @@
+{
+  "name": "UpSkillApp",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "16a878b2"
+}

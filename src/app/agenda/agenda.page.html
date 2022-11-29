@@ -1,0 +1,18 @@
+
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Agenda de formation</ion-title>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+      </ion-toolbar>
+  </ion-header>
+  
+<ion-content [fullscreen]="true">
+
+    <ion-datetime presentation="date"
+        [multiple]="true"
+        [ngModel]="events">
+    </ion-datetime>
+   
+</ion-content>

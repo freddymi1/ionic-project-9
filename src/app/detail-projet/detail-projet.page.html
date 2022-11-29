@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detail du projet</ion-title>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar showCancelButton="focus"  (keyup) = "searchCollaborator($event)" name = "nom"></ion-searchbar>
+
+      <ion-card *ngFor="let projet of Projet.Projet">
+        <ion-card-header>
+          <ion-card-subtitle>{{projet.nom_cfp}}</ion-card-subtitle>
+          <ion-card-title>Module {{projet.nom_module}}</ion-card-title>
+        </ion-card-header>
+        <ion-grid>
+          <ion-row>
+            <ion-col size = "6">
+              <ion-card-content>
+                <ion-label> <ion-icon name="calendar"></ion-icon>{{projet.date_detail}}</ion-label><br>
+                <ion-label> <ion-icon name="home"></ion-icon> {{projet.lieu}} </ion-label><br>
+                <ion-label> <ion-icon name="time"></ion-icon> {{projet.h_debut}}h</ion-label><br>
+                <ion-label> <ion-icon name="time"></ion-icon> {{projet.h_fin}}h</ion-label><br>
+                <ion-label> <ion-icon name="people"></ion-icon>{{projet.nom_formateur}} {{projet.prenom_formateur}}</ion-label>
+              </ion-card-content>
+            </ion-col>
+            <ion-col size = "6">
+              <div *ngIf="this.role == 4; else conditionFalse">
+                <ion-button size="small" color="primary" [routerLink]="['/scan-qr-code/',projet.detail_id]">
+                  <ion-icon name="qr-code-outline" id="emargement"></ion-icon> Scan badge
+                </ion-button>
+              </div>
+              <ng-template #conditionFalse>
+           
+                <ion-button size="small" color="primary" [routerLink]="['/emargement/',projet.groupe_id]">
+                  <ion-icon name="checkmark-circle" id="emargement"></ion-icon> Emargement
+                </ion-button>
+                
+              </ng-template>  
+
+
+
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+</ion-content>

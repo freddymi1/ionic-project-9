@@ -1,0 +1,36 @@
+ion-toolbar {
+  --background: #9733EE;
+}
+// ion-toolbar ion-button{
+//     --background: transparent;
+//     --border-width: 0px;
+//     --box-shadow: none;
+// }
+.padding{
+  padding: 5%;
+}
+.back_button{
+  --background: transparent;
+  --border-width: 0px !important;
+  --border-style: none !important;
+  --box-shadow: none;
+}
+.inscrire{
+  margin-top: 20px;
+  --background: linear-gradient(to left, #DA22FF,#9733EE);
+}
+.message{
+  --color: #ee0979;
+  font-size: .690rem;
+  text-align: center;
+}
+.label{
+  font-size: .850rem;
+  --color: #1d2424;
+}
+.initial{
+  border: 2px solid;
+  background-color: #7d8181;
+  padding: 10px;
+  border-radius: 25px;
+}

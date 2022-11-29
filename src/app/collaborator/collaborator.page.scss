@@ -1,0 +1,134 @@
+.initial{
+  border: 2px solid;
+  background-color: #7d8181;
+  padding: 10px;
+  border-radius: 25px;
+}
+.home {
+    height: 100%;
+    ion-header {
+
+        background-color: #7635dc;
+    }
+
+    ion-header,
+    ion-toolbar {
+
+        border: none !important;
+        --border-style: none !important;
+        border-color: none !important;
+        border-bottom: none !important;
+    }
+
+    ion-toolbar {
+
+       background-color: #7635dc;
+
+    }
+}
+canvas{
+  height: 200px !important;
+  width: 200px !important;
+}
+
+.topHeader {
+
+    height: 8rem;
+    margin-bottom: -8rem;
+    border-end-start-radius: 60px !important;
+
+    background-color: #7635dc;
+
+}
+
+.avatar {
+
+    border-radius: 10px;
+}
+
+.profileStats {
+
+    background-color: rgb(245, 245, 245);
+    border-radius: 10px !important;
+    padding: 0.2rem;
+    align-content: center;
+}
+
+.profileStat {
+
+    text-align: center;
+    margin: 0 auto;
+
+    ion-card-title {
+
+        color: rgb(68, 68, 68);
+        font-size: 0.8rem;
+    }
+
+    ion-card-subtitle {
+
+        font-size: 0.6rem;
+    }
+}
+
+.profileInfo {
+
+    text-align: left;
+    margin-top: -0.2rem;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.profileName {
+
+    color: rgb(59, 59, 59) !important;
+    font-weight: 500 !important;
+}
+
+.profileCard {
+
+    ion-icon {
+
+        font-size: 1.75rem;
+        color: #5893fa;
+        margin-bottom: 1rem;
+    }
+}
+
+.profileStatusContainer {
+
+    margin-top: -2rem;
+    margin-bottom: -2rem;
+
+    ion-card-content {
+
+        margin-top: -1rem !important;
+    }
+}
+
+.profileActionContainer {
+
+    margin-top: -2rem;
+}
+
+.profileStatus {
+
+    ion-card-subtitle {
+
+        margin-top: 0.35rem;
+        margin-left: 1rem;
+    }
+}
+
+.profileActionCard {
+
+    padding-top: 0.5rem;
+
+    ion-icon {
+
+        font-size: 1.75rem;
+        color: #5893fa;
+        margin-top: -0.3rem;
+    }
+}

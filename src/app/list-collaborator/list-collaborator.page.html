@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title>Liste des collaborateurs</ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <div contentId="main" class="padding">
+    <!-- <ion-searchbar showCancelButton="focus"  (keyup) = "searchCollaborator($event)" name = "nom"></ion-searchbar> -->
+      <ion-list class="employeeItem"  *ngFor="let collaborators of Collaborator">
+          <ion-item  lines="none">
+              <div *ngIf=" collaborators.image_blob == null; else conditionFalse">
+                <ion-avatar slot="start">
+                  <span class="initial">{{(collaborators.nom_emp)?.substring(0,1)}}{{(collaborators.prenom_emp)?.substring(0,1)}}</span>
+                </ion-avatar>
+              </div>
+              <ng-template #conditionFalse>
+                <ion-avatar slot="start">
+                  <img src="data:image/png;base64,{{ collaborators.image_blob  }}" alt="photo_user"/>
+                </ion-avatar>
+              </ng-template>
+
+
+              <ion-label><strong> {{collaborators.nom_emp}} </strong> <br>
+                <span class="info_collab">{{collaborators.prenom_emp}} <br> {{collaborators.matricule_emp}} </span>
+              </ion-label>
+              <ion-button size="small" [routerLink]="['/collaborator/',collaborators.matricule_emp]">
+                  <ion-icon name="eye"></ion-icon>
+              </ion-button>
+          </ion-item>
+      </ion-list>
+  </div>
+</ion-content>

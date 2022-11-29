@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button slot="start" class="back_button">
+          <ion-back-button></ion-back-button>
+      </ion-button>
+      <ion-title color="light">Inscription</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="padding">
+      <form (submit)="doRegistration()">
+          <ion-item>
+              <ion-select placeholder="Type d'organisation"  [(ngModel)]="registerData.type_entreprise_id"  name="type_etp">
+                  <ion-select-option value="1">Entreprise</ion-select-option>
+                  <ion-select-option value="2">O.F</ion-select-option>
+              </ion-select>
+          </ion-item>
+          <ion-item lines="full">
+              <ion-label position="floating" class="label">Nom de l'organisation</ion-label>
+              <ion-input class="label" type="text" [(ngModel)]="registerData.nom_etp"  name="nom_etp" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+              <ion-label position="floating" class="label">NIF</ion-label>
+              <ion-input class="label" type="text" [(ngModel)]="registerData.nif"  name="nif" required></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label class="label" id="profile_image" stacked>Logo</ion-label>
+              <ion-input class="label" type="file" accept="image/*" id="upload" (change)="onFileSelected($event)"></ion-input>
+          </ion-item><br><br><br>
+          <ion-label position="floating">A propos du responsable</ion-label>
+          <ion-item lines="full">
+              <ion-label class="label" position="floating">Matricule</ion-label>
+              <ion-input class="label" type="text" [(ngModel)]="registerData.matricule_emp"  name="matricule" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+              <ion-label class="label" position="floating">Nom</ion-label>
+              <ion-input class="label" type="text" [(ngModel)]="registerData.name"  name="name" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+              <ion-label class="label" position="floating">Prénom</ion-label>
+              <ion-input class="label" type="text" [(ngModel)]="registerData.prenom_emp"  name="prenom" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+              <ion-label class="label" position="floating">CIN</ion-label>
+              <ion-input class="label" type="text" [(ngModel)]="registerData.cin"  name="cin" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+              <ion-label class="label" position="floating">Adresse e-mail</ion-label>
+              <ion-input class="label" type="text" [(ngModel)]="registerData.email" name="email" required></ion-input>
+          </ion-item>
+          <ion-item lines="full">
+              <ion-label class="label" position="floating">Mot de passe</ion-label>
+              <ion-input class="label" type="password" [(ngModel)]="registerData.password"  name="password" required></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-label text-center class="message">{{msg}}</ion-label>
+          </ion-item>
+          <ion-item lines="none">
+              <ion-label text-center class="message">{{error}}</ion-label>
+          </ion-item>
+          <ion-button expand="block" shape="round" class="inscrire" type="submit">S'inscrire</ion-button>
+      </form>
+  </div>
+</ion-content>

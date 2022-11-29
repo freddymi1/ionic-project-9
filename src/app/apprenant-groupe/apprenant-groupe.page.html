@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Liste des apprennants</ion-title>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <div contentId="main" class="padding">
+      <ion-list class="employeeItem"  *ngFor="let collaborators of Stagiaire.Stagiaire">
+          <ion-item  lines="none">
+              <!-- <ion-avatar slot="start">
+                  <img src="../assets/cool-user.png" />
+                 <img [src]="'localhost:8000/images/employes/Rakototest_Be.png'"> 
+              </ion-avatar> -->
+              <div *ngIf="collaborators.image_blob != null">
+                <ion-avatar slot="start">
+                  <img src="data:image/png;base64,{{collaborators.image_blob}}" alt="photo_user"/>
+                </ion-avatar>
+              </div>
+              <div *ngIf="collaborators.image_blob == null">
+                <ion-avatar slot="start">
+                  <span class="initial">{{collaborators.nom_stagiaire.substring(0,1)}}{{collaborators.prenom_stagiaire.substring(0,1)}}</span>
+                </ion-avatar>
+              </div>
+              <ion-label><strong> {{collaborators.nom_stagiaire}} </strong> <br>
+                <span class="info_collab">{{collaborators.prenom_stagiaire}} <br> {{collaborators.matricule}} </span>
+              </ion-label>
+
+              <div *ngIf="this.role == 4; else conditionFalse">
+                <ion-button size="small" [routerLink]="['/evaluation-apprenant/',collaborators.stagiaire_id,collaborators.module_id,collaborators.groupe_id]">
+                  <ion-icon name="create"></ion-icon>
+                </ion-button>
+              </div>
+              <ng-template #conditionFalse>
+                <ion-button size="small" [routerLink]="['/resultat-apprenant/',collaborators.stagiaire_id,collaborators.groupe_id]">
+                  <ion-icon name="school"></ion-icon>
+                </ion-button>
+              </ng-template>
+              <ion-button size="small" [routerLink]="['/emargement-apprenant/',collaborators.stagiaire_id,collaborators.groupe_id]">
+                <ion-icon name="checkmark-circle"></ion-icon>
+              </ion-button>
+             
+          </ion-item>
+      </ion-list>
+  </div>
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-justify-content-center ion-align-items-center ion-text-center">
+        <ion-card class ="profileHeader">
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="8">
+                <ion-list *ngFor="let collaborators of Stagiaire.Stagiaire">
+                  <ion-item class="employeeItem">
+                    <ion-label>{{collaborators.matricule}} - {{collaborators.nom_stagiaire}} -{{collaborators.prenom_stagiaire}} </ion-label>
+
+                  <div *ngIf="this.role == 4;">
+                    <ion-button size="small" color="primary" [routerLink]="['/evaluation-apprenant/',collaborators.stagiaire_id,collaborators.module_id,collaborators.groupe_id]">
+                      <ion-icon name="book"> </ion-icon>
+                    </ion-button>
+                  </div>
+                </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</ion-content>
+
+

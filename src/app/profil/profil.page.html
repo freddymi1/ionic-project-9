@@ -1,0 +1,42 @@
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Mon profil</ion-title>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12" class="ion-justify-content-center ion-align-items-center ion-text-center">
+              <ion-card class ="profileHeader">
+								<ion-card-content>
+									<ion-row>
+										<ion-col size="4">
+											<img src="../assets/cool-user.png" alt="avatar" class ="avatar" />
+										</ion-col>
+										<ion-col size="8">
+											<ion-row class ="profileInfo">
+												<ion-col size="12">
+													<ion-text color="dark" class ="profileName">
+														<p>   {{ Formateur.formateur ? Formateur.formateur.nom_formateur :  "..." }}   {{ Formateur.formateur ? Formateur.formateur.prenom_formateur :  "..." }}</p>
+                            <p> {{ Formateur.formateur ? Formateur.formateur.date_naissance :  "..." }} </p>
+                            <p>{{ Formateur.formateur ? Formateur.formateur.cin :  "..." }} </p>
+                            <p>  {{ Formateur.formateur ? Formateur.formateur.mail_formateur :  "..." }}  </p>
+                            <p>  {{ Formateur.formateur ? Formateur.formateur.numero_formateur :  "..." }} </p>
+                            <p> {{ Formateur.formateur ? Formateur.formateur.adresse :  "..." }} </p>
+                            <p>{{ Formateur.formateur ? Formateur.formateur.specialite :  "..." }} </p>
+                            <p>{{ Formateur.formateur ? Formateur.formateur.description :  "..." }} </p>
+													</ion-text>
+												</ion-col>
+											</ion-row>
+										</ion-col>
+									</ion-row>
+								</ion-card-content>
+							</ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+  </ion-content>

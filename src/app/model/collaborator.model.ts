@@ -1,0 +1,29 @@
+export class Collaborator{
+    id:number;
+    matricule_emp:string;
+    nom_emp:string;
+    prenom_emp:string;
+    date_naissance_emp:string;
+    cin_emp:number;
+    email_emp:string;
+    telephone_emp:number;
+    fonction_emp:string;
+    service_id:number;
+    branche_id:number;
+    genre_id:number;
+    departement_entreprises_id:number;
+    adresse_quartier:string;
+    adresse_code_postal:string;
+    adresse_lot:string;
+    adresse_ville:string;
+    adresse_region:string;
+    user_id:string;
+    photos:string;
+    entreprise_id:number;
+    niveau_etude_id:number;
+    activiter:number;
+    prioriter:number;
+    url_photo:string;
+    created_at:Date;
+    updated_at:Date
+}

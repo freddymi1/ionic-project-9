@@ -1,0 +1,19 @@
+<ion-app>
+  <ion-menu side="start" menuId="menu" contentId="main" class="my-custom-menu">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title color="light">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item button (click) = "liste_collaborateur()"><ion-icon name="people" class="ionicon"></ion-icon><a class="small-text lien"> &nbsp;&nbsp;Mes collaborateurs</a></ion-item> 
+        <ion-item  button (click) = "liste_projet()"><ion-icon name="calendar" class="ionicon"></ion-icon>&nbsp;&nbsp;Mes projets de formation</ion-item>
+        <ion-item  button (click) = "agenda()"><ion-icon name="calendar-number" class="ionicon"></ion-icon>&nbsp;&nbsp;Agenda</ion-item>
+        <ion-item button (click) = "notification()"><ion-icon name="notifications" class="ionicon"></ion-icon>&nbsp;&nbsp;Notifications&nbsp;<ion-badge color="success">{{nombre}}</ion-badge></ion-item>
+        <ion-item  button (click) = "deconnexion()" ><ion-icon name="power" class="ionicon"></ion-icon>&nbsp;&nbsp;Se déconnecter</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+<ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
